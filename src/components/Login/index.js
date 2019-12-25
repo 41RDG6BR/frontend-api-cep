@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import Button from '../button'
 import { Link } from 'react-router-dom'
+
+import Layout from '../Layout'
 //import logo from '../logo.svg';
 
 const catchFn = (e)=>{
@@ -52,23 +54,21 @@ const catchFn = (e)=>{
       console.log('chamou render')
       let lista = JSON.stringify(list)
       return (
-        <div className="App">
+      <Layout>
+        <div className="jumbotron">
           <header className="App-header">
             <form ref={this.formRef} action="http://localhost:5000/users/login" method="POST" >
-              Email: <input type="email" placeholder="Email" name="email" /><br/>
-              Password: <input type="password" placeholder="Password" name="password" /><br/>
-              <input type="submit" value="ENVIAR"></input> 
-              <div>
-                <Link to="/register">
-                <Button renderAs="button" label="go back to register">  
-                </Button>
-                </Link>
-              </div>
+            <label>Email</label>
+            <input type="email" placeholder="Email" name="email" class="form-control"/>
+            <label>Password</label>
+            <input type="password" placeholder="Password" name="password" class="form-control"/>
+            <input type="submit" className="btn btn-success" value="Enviar"/>
             </form>
 
           </header>
 
         </div>
+        </Layout>
       );
     }
   }
