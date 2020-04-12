@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import logo from '../logo.svg';
+
 const catchFn = (e)=>{
     console.error(e)
   }
@@ -45,25 +46,27 @@ const catchFn = (e)=>{
         self.setState({result: result})
       })
     }
-    enviarCadastro(event){
-      const self = this
-      const form = this.formRef.current
-      const formData = new FormData(form)
-      axios.post(form.action, {
-        name: formData.get('name'),
-        idade: formData.get('idade'),
-        cep: formData.get('cep'),
-        numero: formData.get('numero')
-      }).then((result)=>{
-        form.reset()
-        console.log(result.data.result)
-        if(result.data && result.data.result && result.data.result.ok === 1){
-          self.setState({message: "deu boa!"})
-          self.setState({result: result})
-        }
-      }).catch(catchFn)
-      event.preventDefault()
-    }
+
+    //esta funcao esta duplicada
+    // enviarCadastro(event){
+    //   const self = this
+    //   const form = this.formRef.current
+    //   const formData = new FormData(form)
+    //   axios.post(form.action, {
+    //     name: formData.get('name'),
+    //     idade: formData.get('idade'),
+    //     cep: formData.get('cep'),
+    //     numero: formData.get('numero')
+    //   }).then((result)=>{
+    //     form.reset()
+    //     console.log(result.data.result)
+    //     if(result.data && result.data.result && result.data.result.ok === 1){
+    //       self.setState({message: "deu boa!"})
+    //       self.setState({result: result})
+    //     }
+    //   }).catch(catchFn)
+    //   event.preventDefault()
+    // }
     
     enviarCadastro(event){
       const self = this
@@ -92,10 +95,9 @@ const catchFn = (e)=>{
       axios.delete('http://localhost:5000/users/' + id)
         .then((result)=>{
           console.log(result.data)
-          if(result.data && result.data.result && result.data.result.ok == 1){
+          if(result.data && result.data.result && result.data.result.ok === 1){
             self.setState({message: "deletou!"})
-            self.setState({result: result})
-            
+            self.setState({result: result})            
           }
         }).catch(catchFn)
     }

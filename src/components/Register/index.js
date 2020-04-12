@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import Button from '../button'
-import { Link } from 'react-router-dom'
+// import Button from '../button'
+// import { Link } from 'react-router-dom'
 import Layout from '../Layout'
 //import logo from '../logo.svg';
 const catchFn = (e)=>{
@@ -43,12 +43,12 @@ const catchFn = (e)=>{
     }
   
     render(){
-      const list = this.state.list
-      const message = this.state.message
-      const result = this.state.result
-      let resultado = JSON.stringify(result)
+      // const list = this.state.list
+      // const message = this.state.message
+      // const result = this.state.result
+      // let resultado = JSON.stringify(result)
       console.log('chamou render')
-      let lista = JSON.stringify(list)
+      // let lista = JSON.stringify(list)
       return (
               <Layout>
         <div className="jumbotron">
